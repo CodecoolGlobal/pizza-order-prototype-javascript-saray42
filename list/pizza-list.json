@@ -10,7 +10,7 @@
         "black hole"
       ],
       "price": 3500099,
-      "allergens": []
+      "allergens": [1, 12, 14]
     },
     {
       "id": 2,
@@ -23,7 +23,7 @@
         "oregano"
       ],
       "price": 2099,
-      "allergens": []
+      "allergens": [1, 6]
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
         "saray-sauce"
       ],
       "price": 299,
-      "allergens": []
+      "allergens": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     },
     {
       "id": 4,
@@ -50,7 +50,7 @@
         "parmesan"
       ],
       "price": 1299,
-      "allergens": []
+      "allergens": [1, 7]
     },
     {
       "id": 5,
@@ -65,7 +65,7 @@
         "oregano"
       ],
       "price": 1499,
-      "allergens": []
+      "allergens": [1]
     },
     {
       "id": 6,
@@ -77,21 +77,15 @@
         "broccoli",
         "onions"
       ],
-      "price": 1499,
+      "price": 999,
       "allergens": []
     },
     {
       "id": 7,
       "name": "High Carb",
-      "ingredients": [
-        "rice",
-        "green bell pepers",
-        "cherry tomatoes",
-        "broccoli",
-        "onions"
-      ],
-      "price": 1499,
-      "allergens": []
+      "ingredients": ["rice", "carolino reaper", "bacon", "erdäpfel", "onions"],
+      "price": 599,
+      "allergens": [1]
     }
   ]
 }

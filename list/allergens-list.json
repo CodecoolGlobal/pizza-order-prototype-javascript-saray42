@@ -1,0 +1,74 @@
+{
+  "allergens": [
+    {
+      "id": 1,
+      "name": "gluten",
+      "description": "Cereals containing gluten"
+    },
+    {
+      "id": 2,
+      "name": "crustaceans",
+      "description": "Crustaceans and products thereof"
+    },
+    {
+      "id": 3,
+      "name": "eggs",
+      "description": "Eggs and products thereof"
+    },
+    {
+      "id": 4,
+      "name": "fish",
+      "description": "Fish and products thereof"
+    },
+    {
+      "id": 5,
+      "name": "peanuts",
+      "description": "Peanuts and products thereof"
+    },
+    {
+      "id": 6,
+      "name": "soybeans",
+      "description": "Soybeans and products thereof"
+    },
+    {
+      "id": 7,
+      "name": "milk",
+      "description": "Milk and products thereof (including lactose)"
+    },
+    {
+      "id": 8,
+      "name": "nuts",
+      "description": "Nuts"
+    },
+    {
+      "id": 9,
+      "name": "celery",
+      "description": "Celery and products thereof"
+    },
+    {
+      "id": 10,
+      "name": "mustard",
+      "description": "Mustard and products thereof"
+    },
+    {
+      "id": 11,
+      "name": "sesame seeds",
+      "description": "Sesame seeds and products thereof"
+    },
+    {
+      "id": 12,
+      "name": "sulphur dioxide and sulphites",
+      "description": "Sulphur dioxide and sulphites"
+    },
+    {
+      "id": 13,
+      "name": "lupin",
+      "description": "Lupin and products thereof"
+    },
+    {
+      "id": 14,
+      "name": "molluscs",
+      "description": "Molluscs and products thereof"
+    }
+  ]
+}

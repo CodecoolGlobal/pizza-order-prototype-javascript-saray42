@@ -1,20 +1,75 @@
 {
     "allergensCategories": [
         {
-            "1": "Cereals containing gluten",
-            "2": "Crustaceans and products thereof",
-            "3": "Eggs and products thereof",
-            "4": "Fish and products thereof",
-            "5": "Peanuts and products thereof",
-            "6": "Soybeans and products thereof",
-            "7": "Milk and products thereof (including lactose)",
-            "8": "Nuts",
-            "9": "Celery and products thereof",
-            "10": "Mustard and products thereof",
-            "11": "Sesame seeds and products thereof",
-            "12": "Sulphur dioxide and sulphites",
-            "13": "Lupin and products thereof",
-            "14": "Molluscs and products thereof"
+            "id": 1,
+            "name": "Cereals"
+        },
+        {
+            "id": 2,
+            "name": "Crustaceans"
+        },
+        {
+            "id": 3,
+            "name": "Eggs"
+        },
+        {
+            "id": 4,
+            "name": "Fish"
+        },
+        {
+            "id": 5,
+            "name": "Peanuts"
+        },
+        {
+            "id": 6,
+            "name": "Soybeans"
+        },
+        {
+            "id": 7,
+            "name": "Milk"
+        },
+        {
+            "id": 8,
+            "name": "Nuts"
+        },
+        {
+            "id": 9,
+            "name": "Celery"
+        },
+        {
+            "id": 10,
+            "name": "Mustard"
+        },
+        {
+            "id": 11,
+            "name": "Sesame seeds"
+        },
+        {
+            "id": 12,
+            "name": "Sulphur dioxide and sulphites"
+        },
+        {
+            "id": 13,
+            "name": "Lupin"
+        },
+        {
+            "id": 14,
+            "name": "Molluscs"
         }
     ]
-  }
+}
+/* 
+"1": "Cereals containing gluten",
+"2": "Crustaceans and products thereof",
+"3": "Eggs and products thereof",
+"4": "Fish and products thereof",
+"5": "Peanuts and products thereof",
+"6": "Soybeans and products thereof",
+"7": "Milk and products thereof (including lactose)",
+"8": "Nuts",
+"9": "Celery and products thereof",
+"10": "Mustard and products thereof",
+"11": "Sesame seeds and products thereof",
+"12": "Sulphur dioxide and sulphites",
+"13": "Lupin and products thereof",
+"14": "Molluscs and products thereof" */

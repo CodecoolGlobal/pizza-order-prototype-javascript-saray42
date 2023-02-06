@@ -1,3 +1,97 @@
 {
-  "pizzaList": [{}]
+  "pizzaList": [
+    {
+      "id": 1,
+      "name": "Space Pizza",
+      "ingredients": [
+        "moon dust",
+        "lava sauce",
+        "dark asteroids",
+        "black hole"
+      ],
+      "price": 3500099,
+      "allergens": []
+    },
+    {
+      "id": 2,
+      "name": "Vegan Funghi Pizza",
+      "ingredients": [
+        "tomatoe sauce",
+        "champignons",
+        "corn",
+        "vegan cheese",
+        "oregano"
+      ],
+      "price": 2099,
+      "allergens": []
+    },
+    {
+      "id": 3,
+      "name": "Pizza Code Hot N' Cool",
+      "ingredients": [
+        "salami resa",
+        "qui-noah",
+        "parme-san",
+        "peppermint-thombon",
+        "tomato-mark",
+        "saray-sauce"
+      ],
+      "price": 299,
+      "allergens": []
+    },
+    {
+      "id": 4,
+      "name": "Quattro Formaggi",
+      "ingredients": [
+        "tomatoe sauce",
+        "mozzarella",
+        "gorgonzola",
+        "fontina",
+        "parmesan"
+      ],
+      "price": 1299,
+      "allergens": []
+    },
+    {
+      "id": 5,
+      "name": "Ultimate Veggie Pizza",
+      "ingredients": [
+        "tomatoe sauce",
+        "vegan cheese",
+        "tomatoes",
+        "zucchini",
+        "eggplant",
+        "olives",
+        "oregano"
+      ],
+      "price": 1499,
+      "allergens": []
+    },
+    {
+      "id": 6,
+      "name": "Low Carb",
+      "ingredients": [
+        "veggie patty",
+        "green bell pepers",
+        "cherry tomatoes",
+        "broccoli",
+        "onions"
+      ],
+      "price": 1499,
+      "allergens": []
+    },
+    {
+      "id": 7,
+      "name": "High Carb",
+      "ingredients": [
+        "rice",
+        "green bell pepers",
+        "cherry tomatoes",
+        "broccoli",
+        "onions"
+      ],
+      "price": 1499,
+      "allergens": []
+    }
+  ]
 }

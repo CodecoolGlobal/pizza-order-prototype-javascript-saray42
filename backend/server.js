@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+const orderRouter = require("./routes/order"); // added by Thomas
+app.use("/api/order", orderRouter); // added by Thomas
+
 const path = require("path");
 const {fileReaderAsync, fileWriteAsync} = require("./fileReader");
 const pizzaFilePath = path.join(__dirname + "/../list/pizza-list.json");

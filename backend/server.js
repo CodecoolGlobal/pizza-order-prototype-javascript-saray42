@@ -9,7 +9,7 @@ const allergesList = path.join(__dirname + "/list/allergens-list.json");
 const orders = path.join(__dirname + "/list/orders.json");
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/backend/index.html'));
+    res.sendFile(path.join(__dirname, '/frontend/index.html'));
 });
 
 app.get("/api/pizza", async (req, res) => {

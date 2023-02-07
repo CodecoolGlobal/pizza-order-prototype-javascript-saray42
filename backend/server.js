@@ -8,6 +8,7 @@ const pizzaList = path.join(__dirname + "/list/pizza-list.json");
 const allergesList = path.join(__dirname + "/list/allergens-list.json");
 const orders = path.join(__dirname + "/list/orders.json");
 
+
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '/frontend/index.html'));
 });
@@ -31,5 +32,8 @@ app.route("/api/order")
         const orderList = await fileReaderAsync(orders);
         res.send(JSON.parse(orderList));
     });
+
+app.use(express.static(path.join(__dirname + "/frontend/public")));
+
 
 app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));

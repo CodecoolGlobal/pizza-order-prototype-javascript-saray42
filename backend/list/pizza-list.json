@@ -78,7 +78,7 @@
         "onions"
       ],
       "price": 999,
-      "allergens": []
+      "allergens": [null]
     },
     {
       "id": 7,

@@ -1,19 +1,29 @@
 const express = require("express");
 const app = express();
 
-const orderRouter = require("./routes/order"); // added by Thomas
-app.use("/api/order", orderRouter); // added by Thomas
-
 const path = require("path");
-const {fileReaderAsync, fileWriteAsync} = require("./fileReader");
-const pizzaFilePath = path.join(__dirname + "/../list/pizza-list.json");
-const allergenFilePath = path.join(__dirname + "/../list/allergens-list.json");
-
-const fs = require("fs/promises");
+const { fileReaderAsync, fileWriteAsync } = require("./fileReader");
+const pizzaList = path.join(__dirname + "/list/pizza-list.json");
+const allergesList = path.join(__dirname + "/list/allergens-list.json");
+const orders = path.join(__dirname + "/list/orders.json");
 
 app.get("/api/pizza", async (req, res) => {
-    const pizzaListJson = await fileReaderAsync(pizzaFilePath);
-    res.send(pizzaListJson);
-})
+    const pizzaListJson = await fileReaderAsync(pizzaList);
+    res.send(JSON.parse(pizzaListJson));
+});
+
+app.get("/api/allergens", async (req, res) => {
+    const allergenListJson = await fileReaderAsync(allergesList);
+    res.send(JSON.parse(allergenListJson));
+});
+
+app.route("/api/order")
+    .get(async (req, res) => {
+        const orderList = await fileReaderAsync(orders);
+        res.send(JSON.parse(orderList));
+    }).post(async (req, res) => {
+        const orderList = await fileReaderAsync(orders);
+        res.send(JSON.parse(orderList));
+    });
 
 app.listen(3000);

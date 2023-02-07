@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const port = 3000;
 
 const path = require("path");
 const { fileReaderAsync, fileWriteAsync } = require("./fileReader");
@@ -25,9 +26,10 @@ app.route("/api/order")
     .get(async (req, res) => {
         const orderList = await fileReaderAsync(orders);
         res.send(JSON.parse(orderList));
-    }).post(async (req, res) => {
+    })
+    .post(async (req, res) => {
         const orderList = await fileReaderAsync(orders);
         res.send(JSON.parse(orderList));
     });
 
-app.listen(3000);
+app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));

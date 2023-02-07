@@ -36,4 +36,4 @@ app.route("/api/order")
 app.use(express.static(path.join(__dirname + "/frontend/public")));
 
 
-app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));
+app.listen(port, _ => console.log(`http://127.0.0.1:${port}, Server runs...`));

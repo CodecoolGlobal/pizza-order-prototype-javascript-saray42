@@ -7,6 +7,10 @@ const pizzaList = path.join(__dirname + "/list/pizza-list.json");
 const allergesList = path.join(__dirname + "/list/allergens-list.json");
 const orders = path.join(__dirname + "/list/orders.json");
 
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '/backend/index.html'));
+});
+
 app.get("/api/pizza", async (req, res) => {
     const pizzaListJson = await fileReaderAsync(pizzaList);
     res.send(JSON.parse(pizzaListJson));

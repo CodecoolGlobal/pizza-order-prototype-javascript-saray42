@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" defer></script>
+    <title>Pizza Erdäpfel</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
-  <script src="./index.js" defer></script>
-  <title>Pizza Erdäpfel</title>
-</head>
-
-<body>
-  <div class="navigation-container">
-    <div class="navigation-content">
-      <!--logo-->
-      <div class="logo"></div>
-      <img src="./img/logo.png" width="50" />
-      <!--menu-->
-      <div class="menu"></div>
-      <ul>
-        <li><a href="#"></a>MENU</li>
-        <li><a href="#"></a>BEST DEAL</li>
-        <li><a href="#"></a>ONLINE ORDER</li>
-      </ul>
-      <!--cart-->
-      <div class="cart">
-        <img src="./img/cart.png" />
-        <a href="#">Cart</a>
+  <body>
+    <div class="navigation-container">
+      <div class="navigation-content">
+        <!--logo-->
+        <div class="logo"></div>
+        <img src="./img/logo.png" width="50" />
+        <!--menu-->
+        <div class="menu"></div>
+        <ul>
+          <li><a href="http://127.0.0.1:3000/menu">MENU</a></li>
+          <li><a href="#"></a>ONLINE ORDER</li>
+        </ul>
+        <!--cart-->
+        <div class="cart">
+          <img src="./img/cart.png" />
+          <a href="#">Cart</a>
+        </div>
       </div>
     </div>
-  </div>
-  <!--naviagtion-end-->
-  <div class="content-container">
-    <!--whats-new-->
-    <div class="whats-new">
-      <img src="./img/new.jpg" />
-    </div>
-    <!--content-->
-    <div class="content">
-      <!----------row 1----------->
-      <div class="first-row">
-        <div class="new">
-          <p>Pizza</p>
-          <p>Pizza</p>
-          <button>HOT & FRESH</button>
-        </div>
-        <!------------------->
-        <div class="tools">
-          <div class="search">
-            <button id="search-pizzas">Search Pizzas</button>
-            <button id="search-allergens">Search Allergens</button>
+    <!--naviagtion-end-->
+    <div class="content-container">
+      <!--whats-new-->
+      <div class="whats-new">
+        <img src="./img/new.jpg" />
+      </div>
+      <!--content-->
+      <div class="content">
+        <!----------row 1----------->
+        <div class="first-row">
+          <div class="new">
+            <p>Pizza</p>
+            <p>Pizza</p>
+            <button>HOT & FRESH</button>
           </div>
-          <div class="order"></div>
+          <!------------------->
+          <div class="tools">
+            <div class="search">
+              <button id="search-pizzas">Search Pizzas</button>
+              <button id="search-allergens">Search Allergens</button>
+            </div>
+            <div class="order"></div>
+          </div>
         </div>
+        <!-----------row 2---------->
+        <div class="second-row"><textarea id="pizzas"></textarea></div>
+        <!-----------row 3---------->
+        <div class="thrid-row"><textarea id="allergens"></textarea></div>
       </div>
-      <!-----------row 2---------->
-      <div class="second-row"><textarea id="pizzas"></textarea></div>
-      <!-----------row 3---------->
-      <div class="thrid-row"><textarea id="allergens"></textarea></div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

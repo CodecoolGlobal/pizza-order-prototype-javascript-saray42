@@ -1,6 +1,6 @@
 const { readFile, writeFile } = require("fs/promises");
 
-const fileWriteAsync = async (filePath, content) => {
+const fileWriterAsync = async (filePath, content) => {
   try {
     return await writeFile(filePath, content, { flag: "w" });
   } catch (error) {
@@ -18,5 +18,5 @@ const fileReaderAsync = async (filePath) => {
 
 module.exports = {
   fileReaderAsync,
-  fileWriteAsync,
+  fileWriterAsync,
 };

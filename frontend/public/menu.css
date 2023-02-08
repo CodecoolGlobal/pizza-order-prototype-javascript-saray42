@@ -30,7 +30,7 @@ h1 {
 }
 
 .navigation-container {
-    width: 100%;
+    width: 100vh;
     height: 60px;
     background-color: #ea272d;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);

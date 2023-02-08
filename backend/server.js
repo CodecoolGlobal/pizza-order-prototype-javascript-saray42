@@ -4,6 +4,7 @@ const fs = require("fs");
 const { fileReaderAsync, fileWriterAsync } = require("./fileReader");
 const app = express();
 const port = 3000;
+const path = require("path");
 
 const pizzaList = JSON.parse(fs.readFileSync(__dirname + "/pizza-list.json"));
 const allergeneList = JSON.parse(fs.readFileSync(__dirname + "/allergens-list.json"));
@@ -12,6 +13,10 @@ const orders = __dirname + "/orders.json";
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname + "/../frontend/index.html"));
+});
 
 app.get("/api/pizza", (req, res) => {
     res.send(pizzaList);
@@ -34,5 +39,7 @@ app.route("/api/order")
         await fileWriterAsync(orders, JSON.stringify(orderList));
         res.send(orderList);
     });
+
+app.use(express.static(path.join(__dirname + "/../frontend/public")));
 
 app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));

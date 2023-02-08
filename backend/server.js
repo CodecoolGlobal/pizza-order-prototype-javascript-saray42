@@ -5,6 +5,8 @@ const { fileReaderAsync, fileWriterAsync } = require("./fileReader");
 const app = express();
 const port = 3000;
 
+const path = require("path");
+
 const pizzaList = JSON.parse(fs.readFileSync(__dirname + "/pizza-list.json"));
 const allergeneList = JSON.parse(fs.readFileSync(__dirname + "/allergens-list.json"));
 
@@ -12,6 +14,15 @@ const orders = __dirname + "/orders.json";
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/", (req, res) => {
+    console.log(__dirname)
+    // res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
+    res.send(__dirname + "/frontend/index.html");
+
+
+
+});
 
 app.get("/api/pizza", (req, res) => {
     res.send(pizzaList);

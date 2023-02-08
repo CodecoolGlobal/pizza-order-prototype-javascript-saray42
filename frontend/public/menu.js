@@ -39,16 +39,22 @@ function addEventClickToAllergenes() {
     const allAllergenesElements = document.querySelectorAll("#allergenes");
     allAllergenesElements.forEach((pizzaAllergenes) => {
         pizzaAllergenes.addEventListener("click", (event) => {
-            const allergeneLetters = pizzaAllergenes.innerText.split(",")
-            createWindowAllergenes(allergeneLetters)
+            if (event.target.id === "allergenes") {
+                const allergeneLetters = pizzaAllergenes.innerText.split(",")
+                createWindowAllergenes(allergeneLetters);
+            }
         })
     });
+    document.addEventListener("click", (event) => {
+        if (event.target.id !== "allergenes") {
+            removeElement("#window-allergenes");
+        }
+    })
 }
 
 async function createWindowAllergenes(allergenLetters) {
-    if (document.querySelector("#window-allergenes")) {
-        document.querySelector("#window-allergenes").remove();
-    }
+    removeElement("#window-allergenes");
+    
     await body.insertAdjacentHTML("afterbegin", `
         <div id="window-allergenes">
             <h2 id="header-allergenes"> Contains following food allergens </h2>
@@ -69,11 +75,23 @@ function getAllergenDescriptionByLetter(letter) {
     const foundAllergenByLetter = allergenesList.find(allergen => allergen.id == letter);
     return foundAllergenByLetter.description;
 }
+function getAllergenShortnameByLetter(letter) {
+    const foundAllergenByLetter = allergenesList.find(allergen => allergen.id == letter);
+    const allergenShortName = foundAllergenByLetter.name;
+    let capitalizedName = allergenShortName[0].toUpperCase() + allergenShortName.slice(1);
+    return capitalizedName;
+}
 function renderAllergenesList(allergenLetters) {
     const listAllergenes = document.querySelector("#list-allergenes");
     allergenLetters.map((allergenCategory) => {
         listAllergenes.insertAdjacentHTML("beforeend", `
-            <li id="list-item-allergenes"><b>${allergenCategory}</b>: ${getAllergenDescriptionByLetter(allergenCategory)} </li>
+            <li id="list-item-allergenes"><b>${allergenCategory} ${getAllergenShortnameByLetter(allergenCategory)}</b>: ${getAllergenDescriptionByLetter(allergenCategory)} </li>
         `);
     })
+}
+
+function removeElement(elementName) {
+    if (document.querySelector(elementName)) {
+        document.querySelector(elementName).remove();
+    }
 }

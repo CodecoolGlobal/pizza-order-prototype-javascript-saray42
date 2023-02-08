@@ -24,6 +24,10 @@ app.get("/menu", (req, res) => {
   res.sendFile(path.join(__dirname + "/../frontend/menu.html"));
 });
 
+app.get("/cart", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../frontend/cart.html"));
+});
+
 app.get("/allergen", (req, res) => {
   res.sendFile(path.join(__dirname + "/../frontend/allergen.html"));
 });

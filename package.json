@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "name": "pizza-order-prototype-javascript-saray42",
@@ -7,7 +8,7 @@
   "version": "1.0.0",
   "main": "./backend/server.js",
   "scripts": {
-    "devStart": "nodemon server.js"  
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",

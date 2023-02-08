@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + "/../frontend/index.html"));
 });
 
+app.get/"/menu", (req, res) => {
+    res.sendFile(path.join(__dirname + "/../frontend/menu.html"));
+}
+
 app.get("/api/pizza", (req, res) => {
     res.send(pizzaList);
 });

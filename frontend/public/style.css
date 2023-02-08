@@ -112,3 +112,148 @@ a {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   outline: none;
 }
+.search,
+.order {
+  width: 540px;
+  height: 150px;
+  margin: 10px;
+  background-color: #b1b1b1;
+}
+.tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.first-row {
+  display: flex;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order {
+  background-image: url(./img/pizza2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.search {
+  background-image: url(./img/ingri.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.search p {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: calibri;
+  font-weight: bold;
+  line-height: 0px;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+}
+.text {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  width: 250px;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+.text input[type="search"] {
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  text-align: center;
+  outline: none;
+}
+.text button {
+  height: 35px;
+  width: 70px;
+  border: none;
+  color: #0b0b0b0b;
+  font-family: calibri;
+  font-weight: bold;
+  outline: none;
+  border-radius: 0px 20px 20px 0px;
+  border-left: 1px solid #cdcaca;
+}
+.order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order p {
+  font-size: 40px;
+  font-family: calibri;
+  font-weight: bold;
+  color: #ffffff;
+
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+.food-1,
+.food-2,
+.food-3 {
+  width: 354px;
+  height: 350;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 5%;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+.food-1 p,
+.food-2 p,
+.food-3 p {
+  margin: 0px;
+  padding: 0px;
+  color: #000000;
+  font-family: calibri;
+  line-height: 80px;
+}
+.name p:nth-child(1) {
+  font-weight: bold;
+  font-size: 40px;
+}
+.name p:nth-child(2) {
+  font-weight: 400px;
+  font-size: 30px;
+}
+.second-row {
+  display: flex;
+}
+.food-1 {
+  background-image: url(./img/pizzaSalami.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.food-2 {
+  background-image: url(./img/pizzavegan.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.food-3 {
+  background-image: url(./img/pizzafire.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.price button {
+  color: #ffffff;
+  border: none;
+  background-color: #ea272d;
+  outline: none;
+  width: 70px;
+  height: 35px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+button:active {
+  transform: scale(1.2);
+  transition: all ease 0.5s;
+}

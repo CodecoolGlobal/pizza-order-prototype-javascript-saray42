@@ -4,6 +4,7 @@ const fs = require("fs");
 const { fileReaderAsync, fileWriterAsync } = require("./fileReader");
 const app = express();
 const port = 3000;
+const path = require("path");
 
 const path = require("path");
 
@@ -16,12 +17,16 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
+<<<<<<< HEAD
     console.log(__dirname)
     // res.sendFile(path.join(`${__dirname}/../frontend/index.html`));
     res.send(__dirname + "/frontend/index.html");
 
 
 
+=======
+    res.sendFile(path.join(__dirname + "/../frontend/index.html"));
+>>>>>>> 9568648868d54e341d86da56410f5b709f528e07
 });
 
 app.get("/api/pizza", (req, res) => {
@@ -45,5 +50,7 @@ app.route("/api/order")
         await fileWriterAsync(orders, JSON.stringify(orderList));
         res.send(orderList);
     });
+
+app.use(express.static(path.join(__dirname + "/../frontend/public")));
 
 app.listen(port, _ => console.log(`http://127.0.0.1:${port}`));

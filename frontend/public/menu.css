@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+    padding: 0 px;
+    background-image: url("./img/backgrond.jpeg");
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+#menu-root {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.pizza {
+    margin: 10px; 
+    padding: 20px;
+    background-color: rgb(246, 244, 238, 0.7);
+    opacity: ;
+    border: 3px solid black;
+    border-radius: 20px;
+}

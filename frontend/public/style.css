@@ -281,16 +281,16 @@ button:active {
 }
 
 #allergen-container,
-#cart-container {
+#cart-container,
+#delivery-container {
   width: 80%;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
   padding: 20px;
   margin: 20px;
   border: 2px solid #ea272d;
   border-radius: 10px;
   font-size: 20px;
-
 }
 
 #allergen-paragraph {
@@ -301,6 +301,10 @@ button:active {
   color: #ea272d;
   ;
 }
+.cart-input {
+text-align: left;
+}
+
 
 .cart-input>label {
   display: block;
@@ -341,4 +345,23 @@ button:active {
 }
 #label-checkbox {
   display: inline !important;
+}
+#cart-container>table {
+  width: 100%;
+}
+#delivery-container {
+  text-align: center;
+}
+#pizza{
+  width: 60%;
+  animation: spin 5s infinite reverse linear;
+  top: 50px;
+}
+@-webkit-keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(359deg);
+  }
 }

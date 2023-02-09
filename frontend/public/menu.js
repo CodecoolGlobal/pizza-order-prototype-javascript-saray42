@@ -2,8 +2,8 @@ const menuList = document.querySelector("#menu");
 const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
-export let currentCartStatus = [];
-// window.order = "orderMartin";
+// export let currentCartStatus = [];
+let currentCartStatus = [];
 
 window.onload = async() => {
     let menu = await fetchAndRenderPizzaList();
@@ -27,6 +27,8 @@ window.onload = async() => {
                 pizzasInCart.push(chosenPizza);
             }
             currentCartStatus = updateCheckoutVar();
+            window.localStorage.setItem("currentOrder", JSON.stringify(currentCartStatus));
+
             console.log(currentCartStatus);
         })
     };

@@ -5,8 +5,9 @@ const inputCity = document.querySelector("#city-inputfield");
 const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
 const confirmBtn = document.querySelector("#confirm-button");
 
-import { currentCartStatus } from "./menu.js";
-console.log(currentCartStatus)
+// import { currentCartStatus } from "./menu.js";
+// console.log(currentCartStatus)
+
 
 let pizzas = [];
 let allergens = [];
@@ -16,16 +17,16 @@ console.log(order)
 let updatedOrder = {}
 
 // Test order object:
-order = [
-    {
-        "id": 1, 
-        "amount": 1
-    },
-    {
-        "id": 6, 
-        "amount": 2
-    }
-];
+// order = [
+//     {
+//         "id": 1, 
+//         "amount": 1
+//     },
+//     {
+//         "id": 6, 
+//         "amount": 2
+//     }
+// ];
 const fetchPizzaList = async () => {
     const list = await fetch("http://localhost:3000/api/pizza");
     const pizzaParsed = await list.json();
@@ -48,6 +49,7 @@ const main = async () => {
     // searchAllergens.onclick = fetchAllergeneList;
     await fetchPizzaList();
     await fetchAllergeneList();
+    getDataFromMenu();
     renderOrderList();
     addEventConfirmBtn();
 
@@ -125,3 +127,8 @@ async function updateUserDataToServer(object) {
 	});
 }
 
+function getDataFromMenu() {
+    const orderLocalStorage = window.localStorage.getItem('currentOrder');
+    console.log(JSON.parse(orderLocalStorage));
+    order = JSON.parse(orderLocalStorage);
+}

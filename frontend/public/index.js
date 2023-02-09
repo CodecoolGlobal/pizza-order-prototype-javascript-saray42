@@ -10,6 +10,7 @@ let allergens = [];
 let ingredients = [];
 
 const fetchPizzaList = async () => {
+  console.log("fetch Pizza list");
   const list = await fetch("http://localhost:3000/api/pizza");
   const pizzaParsed = await list.json();
   pizzas = pizzaParsed;
@@ -17,8 +18,8 @@ const fetchPizzaList = async () => {
     ingredients.push(pizzas.pizza[i].ingredients);
   }
   // pizzasOut.innerText = pizzas;
+  console.log(ingredients.flat());
 };
-console.log(ingredients);
 
 const fetchAllergeneList = async () => {
   const list = await fetch("http://localhost:3000/api/allergens");
@@ -36,6 +37,8 @@ const main = async () => {
   // console.log(typeof allergens);
   renderAllergenList();
 };
+
+main();
 
 function renderAllergenList() {
   const allergenListElement = document.querySelector("#allergen-list");
@@ -58,5 +61,3 @@ const dataListOptionHTML = `<option value="${ingredients}"></option>`;
 searchInput.addEventListener("keyup", async () => {
   ingredientsOption.insertAdjacentHTML("beforeend", dataListOptionHTML);
 });
-
-main();

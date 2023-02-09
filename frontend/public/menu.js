@@ -40,7 +40,7 @@ async function displayPizzaElements(pizza) {
 async function fetchAPIAllergenesList() {
     const fetchedData = await fetch("http://127.0.0.1:3000/api/allergens")
     const parsedData = await fetchedData.json();
-    allergenesList = parsedData;
+    allergenesList = parsedData.allergens;
 };
 
 function addEventClickToAllergenes() {
@@ -62,7 +62,7 @@ function addEventClickToAllergenes() {
 
 async function createWindowAllergenes(allergenLetters) {
     removeElement("#window-allergenes");
-    await body.insertAdjacentHTML("afterbegin", `
+    body.insertAdjacentHTML("afterbegin", `
         <div id="window-allergenes">
             <h2 id="header-allergenes"> Contains following food allergens </h2>
             <ul id="list-allergenes">
@@ -79,12 +79,12 @@ async function createWindowAllergenes(allergenLetters) {
 };
 
 function getAllergenDescriptionByLetter(letter) {
-    const foundAllergenByLetter = allergenesList.find(allergen => allergen.id == letter);
+    const foundAllergenByLetter = allergenesList.find(allergen => allergen.category == letter);
     return foundAllergenByLetter.description;
 };
 
 function getAllergenShortnameByLetter(letter) {
-    const foundAllergenByLetter = allergenesList.find(allergen => allergen.id == letter);
+    const foundAllergenByLetter = allergenesList.find(allergen => allergen.category == letter);
     const allergenShortName = foundAllergenByLetter.name;
     let capitalizedName = allergenShortName[0].toUpperCase() + allergenShortName.slice(1);
     return capitalizedName;

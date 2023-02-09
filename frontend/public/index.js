@@ -17,7 +17,7 @@ const fetchPizzaList = async () => {
 const fetchAllergeneList = async () => {
     const list = await fetch("http://localhost:3000/api/allergens");
     const allergeneParsed = await list.json();
-    allergens = allergeneParsed;
+    allergens = allergeneParsed.allergens;
     // allergensOut.innerText = allergens;
     // console.log(allergens);
 }
@@ -27,6 +27,7 @@ const main = async () => {
     // searchAllergens.onclick = fetchAllergeneList;
     await fetchPizzaList();
     await fetchAllergeneList();
+    console.log(typeof allergens)
     renderAllergenList();
 }
 
@@ -38,7 +39,7 @@ function renderAllergenList() {
         const allergenShortName = allergen.name;
         const capitalizedName = allergenShortName[0].toUpperCase() + allergenShortName.slice(1);
         allergenListElement.insertAdjacentHTML("beforeend", `
-            <p id="allergen-paragraph"><b>(${allergen.category}) ${capitalizedName}</b>: <br> ${allergen.description}</p>
+            <p id="allergen-paragraph"><b>(${allergen.category}) ${capitalizedName}</b> <br> ${allergen.description}</p>
         `)
     })
 }

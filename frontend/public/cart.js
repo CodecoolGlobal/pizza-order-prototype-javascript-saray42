@@ -126,8 +126,3 @@ function renderDeliveryScreen() {
     cartContainer.style.display = "none";
     deliveryContainer.style.display = "";
 }
-// const deliveryContainer = document.querySelector("#delivery-container");
-// const cartContainer = document.querySelector("#cart-container");
-// cartContainer.style.display = "none";
-// deliveryContainer.style.display = "";
-

@@ -1,81 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./public/style.css" />
-    <script src="./public/cart.js" defer></script>
-    
-    <title>Pizza Erdäpfel</title>
-  </head>
 
-  <body>
-    <div class="navigation-container">
-      <div class="navigation-content">
-        <!--logo-->
-        <div class="logo"></div>
-        <img src="./public/img/logo.png" width="50" />
-        <!--menu-->
-        <div class="menu"></div>
-        <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="menu.html">MENU</a></li>
-        </ul>
-        <!--cart-->
-        <!-- <div class="cart">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./public/style.css" />
+  <script src="./public/cart.js" defer></script>
+
+  <title>Pizza Erdäpfel</title>
+</head>
+
+<body>
+  <div class="navigation-container">
+    <div class="navigation-content">
+
+      <div class="logo"></div>
+      <img src="./public/img/logo.png" width="50" />
+
+      <div class="menu"></div>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+      </ul>
+
+      <!-- <div class="cart">
           <img src="./img/cart.png" />
           <a href="#">Cart</a>
         </div> -->
-      </div>
-    </div>
-    <!--naviagtion-end-->
-    <div id="content-container" class="content">
-
-      <div id="cart-container">
-        <h1>Your order</h1>
-        <table id="order-list">
-        </table>
-        <!-- <h3 id="total-cost">Total cost: -</h3> -->
-
-
-        <hr id="cart-horizontal-line">
-        <h1>Delivery to...</h1>
-        <!-- <p>Please complete your personal data.</p> -->
-        <div class="cart-input">
-          <label for="fullname">Fullname</label>
-          <input type="text" name="fullname" id="fullname-inputfield" placeholder="">
-        </div>
-        <div class="cart-input">
-          <label for="email">E-Mail</label>
-          <input type="email" name="email" id="email-inputfield" placeholder="" >
-        </div>
-        <div class="cart-input">
-          <label for="street">Street</label>
-          <input type="text" name="street" id="street-inputfield" placeholder="" >
-        </div>
-        <div class="cart-input">
-          <label for="city">City</label>
-          <input type="text" name="city" id="city-inputfield" placeholder="" >
-        </div>
-        <div class="cart-input checkbox">
-          <input type="checkbox" name="newsletter" id="checkbox-newsletter" value="yes" checked>
-          <label id="label-checkbox" for="newsletter">Keep me up to date and send me newsletters.</label>
-        </div>
-        <p>Last step, check your data above and confirm your order.</p>
-        <button id="confirm-button">Order</button>
-      </div>
-      
-      <div id="content2-container" class="content">
-        <div style="display: none" id="delivery-container">
-          <h1>Thank you, we have received your order.</h1>
-          <img src="https://www.pngkey.com/png/full/2-21391_hand-drawn-cartoon-pizza-decoration-vector-pizza-picture.png" 
-            id="pizza"
-            alt="rotating-pizza"/>
-          <h3><a href="menu.html">You want more?</a></h3>
-        </div>
-      </div>
 
     </div>
-  </body>
+  </div>
+
+  <div id="content-container" class="content">
+
+    <div id="cart-container">
+      <h1>Your order</h1>
+      <table id="order-list"></table>
+
+      <hr id="cart-horizontal-line">
+
+      <h1>Delivery to...</h1>
+      <div class="cart-input">
+        <label for="fullname">Fullname</label>
+        <input type="text" name="fullname" id="fullname-inputfield" placeholder="">
+      </div>
+      <div class="cart-input">
+        <label for="email">E-Mail</label>
+        <input type="email" name="email" id="email-inputfield" placeholder="">
+      </div>
+      <div class="cart-input">
+        <label for="street">Street</label>
+        <input type="text" name="street" id="street-inputfield" placeholder="">
+      </div>
+      <div class="cart-input">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city-inputfield" placeholder="">
+      </div>
+      <div class="cart-input checkbox">
+        <input type="checkbox" name="newsletter" id="checkbox-newsletter" value="yes" checked>
+        <label id="label-checkbox" for="newsletter">Keep me up to date and send me newsletters.</label>
+      </div>
+      <p>Last step, check your data above and confirm your order.</p>
+      <button id="confirm-button">Order</button>
+    </div>
+
+    <div id="content2-container" class="content">
+      <div style="display: none" id="delivery-container">
+        <h1>Thank you, we have received your order.</h1>
+        <img src="https://www.pngkey.com/png/full/2-21391_hand-drawn-cartoon-pizza-decoration-vector-pizza-picture.png"
+          id="pizza" alt="rotating-pizza" />
+        <h3><a href="menu.html">You want more?</a></h3>
+      </div>
+    </div>
+
+  </div>
+</body>
+
 </html>

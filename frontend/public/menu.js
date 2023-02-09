@@ -2,31 +2,36 @@ const menuList = document.querySelector("#menu");
 const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
-
+export let Test = ["Thomas & Martin"];
 
 window.onload = async() => {
     let menu = await fetchAndRenderPizzaList();
     await fetchAPIAllergenesList();
     displayEmptyBasket();
     addEventClickToAllergenes();
+    let pizzasInCart = [];
 
     const addToCartButton = document.querySelectorAll(".add-to-cart");
-    for (button of addToCartButton) {
+    for (let button of addToCartButton) {
         button.addEventListener("click", (e) => {
             const orderItemTable = document.getElementById("cart-table");
             const chosenPizzaID = (e.target.parentNode.id.split(""))[1];
             const chosenPizza = menu.pizza[chosenPizzaID - 1];
-            const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
-            orderItemTable.appendChild(orderItemTableRow);
+            if (pizzasInCart.includes(chosenPizza)) {
+                const cartAmountOfChosenPizza = document.getElementById(`a${chosenPizzaID}`);
+                cartAmountOfChosenPizza.innerHTML = parseInt(cartAmountOfChosenPizza.innerHTML) + 1;
+             } else {
+                const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
+                orderItemTable.appendChild(orderItemTableRow);
+                pizzasInCart.push(chosenPizza);
+            }
 
 
-            console.log(orderItemTable);
+            console.log(pizzasInCart);
             console.log(menu);
         })
     };
 };
-
-
 
 async function fetchAndRenderPizzaList() {
     const fetchedData = await fetch("http://127.0.0.1:3000/api/pizza");
@@ -154,6 +159,7 @@ function renderChosenPizzaEl(pizza) {
     amountDownBtn.innerHTML = "-"
 
     const amountNumber = document.createElement("p");
+    amountNumber.setAttribute("id", `a${pizza.id}`)
     amountNumber.innerHTML = 1;
 
     const amountUpBtn = document.createElement("button");
@@ -167,6 +173,11 @@ function renderChosenPizzaEl(pizza) {
 
     amountDownBtn.addEventListener("click", (e) => {
         e.target.nextElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.nextElementSibling.innerHTML) + 1 : parseInt(e.target.nextElementSibling.innerHTML) - 1;
+        console.log(e.target.nextElementSibling.innerHTML)
+        if (e.target.nextElementSibling.innerHTML === "0") {
+            console.log(0)
+            e.target.parentNode.parentNode.remove();
+        }
     });
     amountUpBtn.addEventListener("click", (e) => {
         e.target.previousElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.previousElementSibling.innerHTML) + 1 : parseInt(e.target.previousElementSibling.innerHTML) - 1;
@@ -174,3 +185,7 @@ function renderChosenPizzaEl(pizza) {
 
     return tableRow;
 };
+
+function checkIfPizzaAlreadyInCart(cart, pizza) {
+    cart
+}

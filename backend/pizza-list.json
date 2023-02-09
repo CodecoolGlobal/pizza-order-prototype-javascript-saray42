@@ -9,7 +9,7 @@
         "dark asteroids",
         "black hole"
       ],
-      "price": 3500099,
+      "price": 35000.99,
       "allergens": [1, 12, 14]
     },
     {
@@ -22,7 +22,7 @@
         "vegan cheese",
         "oregano"
       ],
-      "price": 2099,
+      "price": 20.99,
       "allergens": [1, 6]
     },
     {
@@ -37,7 +37,7 @@
         "saray sauce",
         "cherry to-martoes"
       ],
-      "price": 299,
+      "price": 2.99,
       "allergens": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     },
     {
@@ -50,7 +50,7 @@
         "fontina",
         "parmesan"
       ],
-      "price": 1299,
+      "price": 12.99,
       "allergens": [1, 7]
     },
     {
@@ -65,7 +65,7 @@
         "olives",
         "oregano"
       ],
-      "price": 1499,
+      "price": 14.99,
       "allergens": [1]
     },
     {
@@ -78,14 +78,14 @@
         "broccoli",
         "onions"
       ],
-      "price": 999,
+      "price": 9.99,
       "allergens": [null]
     },
     {
       "id": 7,
       "name": "High Carb",
       "ingredients": ["rice", "carolino reaper", "bacon", "erdäpfel", "onions"],
-      "price": 599,
+      "price": 5.99,
       "allergens": [1]
     }
   ]

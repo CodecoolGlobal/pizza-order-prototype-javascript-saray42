@@ -1,86 +1,88 @@
-[
-  {
-    "id": 1,
-    "name": "gluten",
-    "category": "A",
-    "description": "Cereals containing gluten, namely: wheat (such as spelt and khorasan wheat), rye, barley, oats or their hybridised strains, and products thereof, except: (a) wheat based glucose syrups including dextrose (b) wheat based maltodextrins (c) glucose syrups based on barley (d) cereals used for making alcoholic distillates including ethyl alcohol of agricultural origin"
-  },
-  {
-    "id": 2,
-    "name": "crustaceans",
-    "category": "B",
-    "description": "Crustaceans and products thereof"
-  },
-  {
-    "id": 3,
-    "name": "eggs",
-    "category": "C",
-    "description": "Eggs and products thereof"
-  },
-  {
-    "id": 4,
-    "name": "fish",
-    "category": "D",
-    "description": "Fish and products thereof, except: (a) fish gelatine used as carrier for vitamin or carotenoid preparations (b) fish gelatine or Isinglass used as fining agent in beer and wine"
-  },
-  {
-    "id": 5,
-    "name": "peanuts",
-    "category": "E",
-    "description": "Peanuts and products thereof"
-  },
-  {
-    "id": 6,
-    "name": "soybeans",
-    "category": "F",
-    "description": "Soybeans and products thereof, except: (a) fully refined soybean oil and fat (b) natural mixed tocopherols (E306), natural D-alpha tocopherol, natural D-alpha tocopherol acetate, and natural D-alpha tocopherol succinate from soybean sources (c) vegetable oils derived phytosterols and phytosterol esters from soybean sources (d) plant stanol ester produced from vegetable oil sterols from soybean sources"
-  },
-  {
-    "id": 7,
-    "name": "milk",
-    "category": "G",
-    "description": "Milk and products thereof (including lactose), except: (a) whey used for making alcoholic distillates including ethyl alcohol of agricultural origin (b) lactitol"
-  },
-  {
-    "id": 8,
-    "name": "nuts",
-    "category": "H",
-    "description": "Nuts, namely: almonds (Amygdalus communis L.), hazelnuts (Corylus avellana), walnuts (Juglans regia), cashews (Anacardium occidentale), pecan nuts (Carya illinoinensis (Wangenh.) K. Koch), Brazil nuts (Bertholletia excelsa), pistachio nuts (Pistacia vera), macadamia or Queensland nuts (Macadamia ternifolia), and products thereof, except for nuts used for making alcoholic distillates including ethyl alcohol of agricultural origin"
-  },
-  {
-    "id": 9,
-    "name": "celery",
-    "category": "L",
-    "description": "Celery and products thereof"
-  },
-  {
-    "id": 10,
-    "name": "mustard",
-    "category": "M",
-    "description": "Mustard and products thereof"
-  },
-  {
-    "id": 11,
-    "name": "sesame seeds",
-    "category": "N",
-    "description": "Sesame seeds and products thereof"
-  },
-  {
-    "id": 12,
-    "name": "sulphur dioxide and sulphites",
-    "category": "O",
-    "description": "Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 mg/litre in terms of the total SO2 which are to be calculated for products as proposed ready for consumption or as reconstituted according to the instructions of the manufacturers"
-  },
-  {
-    "id": 13,
-    "name": "lupin",
-    "category": "P",
-    "description": "Lupin and products thereof"
-  },
-  {
-    "id": 14,
-    "name": "molluscs",
-    "category": "R",
-    "description": "Molluscs and products thereof"
-  }
-]
+{
+  "allergens": [
+    {
+      "id": 1,
+      "name": "gluten",
+      "category": "A",
+      "description": "Cereals containing gluten, namely: wheat (such as spelt and khorasan wheat), rye, barley, oats or their hybridised strains, and products thereof, except: (a) wheat based glucose syrups including dextrose (b) wheat based maltodextrins (c) glucose syrups based on barley (d) cereals used for making alcoholic distillates including ethyl alcohol of agricultural origin"
+    },
+    {
+      "id": 2,
+      "name": "crustaceans",
+      "category": "B",
+      "description": "Crustaceans and products thereof"
+    },
+    {
+      "id": 3,
+      "name": "eggs",
+      "category": "C",
+      "description": "Eggs and products thereof"
+    },
+    {
+      "id": 4,
+      "name": "fish",
+      "category": "D",
+      "description": "Fish and products thereof, except: (a) fish gelatine used as carrier for vitamin or carotenoid preparations (b) fish gelatine or Isinglass used as fining agent in beer and wine"
+    },
+    {
+      "id": 5,
+      "name": "peanuts",
+      "category": "E",
+      "description": "Peanuts and products thereof"
+    },
+    {
+      "id": 6,
+      "name": "soybeans",
+      "category": "F",
+      "description": "Soybeans and products thereof, except: (a) fully refined soybean oil and fat (b) natural mixed tocopherols (E306), natural D-alpha tocopherol, natural D-alpha tocopherol acetate, and natural D-alpha tocopherol succinate from soybean sources (c) vegetable oils derived phytosterols and phytosterol esters from soybean sources (d) plant stanol ester produced from vegetable oil sterols from soybean sources"
+    },
+    {
+      "id": 7,
+      "name": "milk",
+      "category": "G",
+      "description": "Milk and products thereof (including lactose), except: (a) whey used for making alcoholic distillates including ethyl alcohol of agricultural origin (b) lactitol"
+    },
+    {
+      "id": 8,
+      "name": "nuts",
+      "category": "H",
+      "description": "Nuts, namely: almonds (Amygdalus communis L.), hazelnuts (Corylus avellana), walnuts (Juglans regia), cashews (Anacardium occidentale), pecan nuts (Carya illinoinensis (Wangenh.) K. Koch), Brazil nuts (Bertholletia excelsa), pistachio nuts (Pistacia vera), macadamia or Queensland nuts (Macadamia ternifolia), and products thereof, except for nuts used for making alcoholic distillates including ethyl alcohol of agricultural origin"
+    },
+    {
+      "id": 9,
+      "name": "celery",
+      "category": "L",
+      "description": "Celery and products thereof"
+    },
+    {
+      "id": 10,
+      "name": "mustard",
+      "category": "M",
+      "description": "Mustard and products thereof"
+    },
+    {
+      "id": 11,
+      "name": "sesame seeds",
+      "category": "N",
+      "description": "Sesame seeds and products thereof"
+    },
+    {
+      "id": 12,
+      "name": "sulphur dioxide and sulphites",
+      "category": "O",
+      "description": "Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 mg/litre in terms of the total SO2 which are to be calculated for products as proposed ready for consumption or as reconstituted according to the instructions of the manufacturers"
+    },
+    {
+      "id": 13,
+      "name": "lupin",
+      "category": "P",
+      "description": "Lupin and products thereof"
+    },
+    {
+      "id": 14,
+      "name": "molluscs",
+      "category": "R",
+      "description": "Molluscs and products thereof"
+    }
+  ]
+}

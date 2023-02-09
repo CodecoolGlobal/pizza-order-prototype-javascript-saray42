@@ -67,3 +67,5 @@ function renderOrderList() {
         `)
     })
 }
+import { Test } from "./menu.js";
+console.log(Test)

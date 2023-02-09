@@ -2,7 +2,7 @@ const menuList = document.querySelector("#menu");
 const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
-
+export let Test = ["Thomas & Martin"];
 
 window.onload = async() => {
     await fetchAndRenderPizzaList();
@@ -15,8 +15,6 @@ window.onload = async() => {
         console.log(e.target.parentNode);
     })
 };
-
-
 
 async function fetchAndRenderPizzaList() {
     const fetchedData = await fetch("http://127.0.0.1:3000/api/pizza");

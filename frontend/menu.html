@@ -31,8 +31,24 @@
         <h1>Our TOP 7!</h1>
       </div>
       <div id="cart-root">
-        <h1>Cart</h1>
-        <div id="cart"></div>
+        <!-- <h1>Cart</h1> -->
+        <div id="cart">
+          <h3>Cart</h3>
+          <hr class="cart-line">
+          <div id="chosen-pizzas">
+            <div id="empty-cart">If you want some... put them here!</div>
+          </div>
+          <hr class="cart-line">
+          <div id="calc">
+            <p class="calc">Subtotal:</p>
+            <p class="calc" id="subtotal">--</p>
+            <p class="calc">Delivery fee:</p>
+            <p class="calc" id="delivery-fee">--</p>
+            <p class="total">Total:</p>
+            <p class="total" id="total">--</p>
+          </div>
+            <button id="checkout-btn" type="button">CHECKOUT</button>
+        </div>
       </div>
     </div>
   </body>

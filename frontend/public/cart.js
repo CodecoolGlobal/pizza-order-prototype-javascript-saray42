@@ -4,6 +4,7 @@ const inputStreet = document.querySelector("#street-inputfield");
 const inputCity = document.querySelector("#city-inputfield");
 const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
 const confirmBtn = document.querySelector("#confirm-button");
+const deliveryFee = 2.00;
 
 let pizzas = [];
 let allergens = [];
@@ -53,18 +54,36 @@ main();
 
 function renderOrderList() {
     const orderListElement = document.querySelector("#order-list");
-    let sum = null;
+    let sum = deliveryFee;
     order.map((pizza) => {
         const filteredPizza = getPizzaByID(pizza.id)
-        const pizzaPrice = intlNumberFormat(filteredPizza.price);
+        const pizzaPriceSum = filteredPizza.price * pizza.amount
+        
         orderListElement.insertAdjacentHTML("beforeend", `
-        <p id="allergen-paragraph">${pizza.amount} x ${getPizzaByID(pizza.id).name} ea ${pizzaPrice}</p>
+        <tr>
+            <td align=left >${getPizzaByID(pizza.id).name}</td>
+            <td align=right >${pizza.amount} x</td>
+            <td align=right >${intlNumberFormat(filteredPizza.price)}</td>
+            <td align=right >${intlNumberFormat(pizzaPriceSum)}</td>
+        </tr>
         `)
         sum += (Number(pizza.amount) * Number(filteredPizza.price));
     })
-    const totalCost = document.querySelector("#total-cost");
-    const sumFormated = intlNumberFormat(sum);
-    totalCost.innerText = `Total cost: ${sumFormated}`
+
+    orderListElement.insertAdjacentHTML("beforeend", `
+    <tr>
+        <td align=left >Delivery fee</td>
+        <td align=right > - </td>
+        <td align=right > - </td>
+        <td align=right > ${intlNumberFormat(deliveryFee)}</td>
+    </tr>
+    <tr>
+        <td align=left ><h3> Total </h3></td>
+        <td align=right > </td>
+        <td align=right > </td>
+        <td align=right ><h3> ${intlNumberFormat(sum)} </h3></td>
+    </tr>
+    `)
 }
 
 function getPizzaByID(searchID) {

@@ -27,7 +27,6 @@ window.onload = async() => {
             }
             currentCartStatus = updateCheckoutVar();
             window.localStorage.setItem("currentOrder", JSON.stringify(currentCartStatus));
-
             console.log(currentCartStatus);
         })
     };

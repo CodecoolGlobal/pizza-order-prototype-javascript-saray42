@@ -16,22 +16,6 @@ const orders = __dirname + "/orders.json";
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../frontend/index.html"));
-});
-
-app.get("/menu", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../frontend/menu.html"));
-});
-
-app.get("/cart", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../frontend/cart.html"));
-});
-
-app.get("/allergen", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../frontend/allergen.html"));
-});
-
 app.get("/api/pizza", (req, res) => {
   res.send(pizzaList);
 });

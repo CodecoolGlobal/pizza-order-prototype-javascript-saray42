@@ -2,7 +2,6 @@ const menuList = document.querySelector("#menu");
 const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
-// export let currentCartStatus = [];
 let currentCartStatus = [];
 
 window.onload = async() => {

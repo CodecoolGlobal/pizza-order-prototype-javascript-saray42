@@ -5,16 +5,10 @@ const inputCity = document.querySelector("#city-inputfield");
 const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
 const confirmBtn = document.querySelector("#confirm-button");
 
-// import { currentCartStatus } from "./menu.js";
-// console.log(currentCartStatus)
-
-
 let pizzas = [];
 let allergens = [];
-let order = [];
-// order = currentCartStatus // doesn't work
-console.log(order)
-let updatedOrder = {}
+let order = null;
+let updatedOrder = {};
 
 // Test order object:
 // order = [

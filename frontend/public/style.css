@@ -112,6 +112,7 @@ a {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
   outline: none;
 }
+
 .search,
 .order {
   width: 540px;
@@ -119,25 +120,30 @@ a {
   margin: 10px;
   background-color: #b1b1b1;
 }
+
 .tools {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .first-row {
   display: flex;
 }
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .order {
   background-image: url(./img/pizza2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .search {
   background-image: url(./img/ingri.jpg);
   background-repeat: no-repeat;
@@ -147,6 +153,7 @@ a {
   align-items: center;
   flex-direction: column;
 }
+
 .search p {
   color: #ffffff;
   font-size: 30px;
@@ -155,6 +162,7 @@ a {
   line-height: 0px;
   text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
 }
+
 .text {
   background-color: #f1f1f1;
   border-radius: 20px;
@@ -165,6 +173,7 @@ a {
   align-items: center;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
 .text input[type="search"] {
   border: none;
   background-color: transparent;
@@ -172,6 +181,7 @@ a {
   text-align: center;
   outline: none;
 }
+
 .text button {
   height: 35px;
   width: 70px;
@@ -183,11 +193,13 @@ a {
   border-radius: 0px 20px 20px 0px;
   border-left: 1px solid #cdcaca;
 }
+
 .order {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .order p {
   font-size: 40px;
   font-family: calibri;
@@ -196,6 +208,7 @@ a {
 
   text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
+
 .food-1,
 .food-2,
 .food-3 {
@@ -208,6 +221,7 @@ a {
   padding: 30px 5%;
   text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
 .food-1 p,
 .food-2 p,
 .food-3 p {
@@ -217,32 +231,39 @@ a {
   font-family: calibri;
   line-height: 80px;
 }
+
 .name p:nth-child(1) {
   font-weight: bold;
   font-size: 40px;
 }
+
 .name p:nth-child(2) {
   font-weight: 400px;
   font-size: 30px;
 }
+
 .second-row {
   display: flex;
 }
+
 .food-1 {
   background-image: url(./img/pizzaSalami.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .food-2 {
   background-image: url(./img/pizzavegan.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .food-3 {
   background-image: url(./img/pizzafire.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .price button {
   color: #ffffff;
   border: none;
@@ -253,6 +274,7 @@ a {
   border-radius: 20px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
+
 button:active {
   transform: scale(1.2);
   transition: all ease 0.5s;
@@ -267,12 +289,56 @@ button:active {
   margin: 20px;
   border: 2px solid #ea272d;
   border-radius: 10px;
+  font-size: 20px;
+
+}
+
+#allergen-paragraph {
+  font-size: 20px;
 }
 
 #cart-horizontal-line {
   color: #ea272d;
+  ;
 }
 
-.cart-input > label {
-  /* background-color: red; */
+.cart-input>label {
+  display: block;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.cart-input>input {
+  padding: 5px;
+  font-size: 25px;
+  margin-bottom: 10px;
+  background-color: #ea272e4d;
+  border: 1px solid gray;
+  border-radius: 15px;
+  outline: none;
+}
+
+.cart-input>input:focus {
+  border: 1px solid black;
+}
+.cart-input>checkbox {
+  display: flex;
+  background-color: #ea272e4d;
+}
+#confirm-button {
+  background-color: #ea272e4d;
+  border: none;
+  border-radius: 15px;
+  font-size: 25px;
+  color: black;
+  padding: 7px;
+  width: 200px;
+  text-align: center;
+}
+#confirm-button:hover {
+  background-color: #ea272d;
+  color: white;
+}
+#label-checkbox {
+  display: inline !important;
 }

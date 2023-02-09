@@ -3,15 +3,18 @@ const inputEmail = document.querySelector("#email-inputfield");
 const inputStreet = document.querySelector("#street-inputfield");
 const inputCity = document.querySelector("#city-inputfield");
 const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
-
-
-
 const confirmBtn = document.querySelector("#confirm-button");
+
+import { currentCartStatus3 } from "./menu.js";
+console.log(currentCartStatus3)
 
 let pizzas = [];
 let allergens = [];
 let order = [];
+order = currentCartStatus;
+console.log(order)
 let updatedOrder = {}
+/* 
 order = {
     "id": 1,
     "pizzas": [
@@ -40,7 +43,7 @@ order = {
         }
     }
 };
-
+ */
 const fetchPizzaList = async () => {
     const list = await fetch("http://localhost:3000/api/pizza");
     const pizzaParsed = await list.json();
@@ -140,5 +143,3 @@ async function updateUserDataToServer(object) {
 	});
 }
 
-import { Test } from "./menu.js";
-console.log(Test)

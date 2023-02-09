@@ -27,14 +27,15 @@
     },
     {
       "id": 3,
-      "name": "Pizza Code Hot N' Cool",
+      "name": "Hot'n Codecool",
       "ingredients": [
-        "salami resa",
+        "tomato-mark",
+        "salami-resa",
         "qui-noah",
         "parme-san",
-        "peppermint-thombon",
-        "tomato-mark",
-        "saray-sauce"
+        "tom-ions",
+        "saray sauce",
+        "cherry to-martoes"
       ],
       "price": 299,
       "allergens": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]

@@ -27,7 +27,8 @@ window.onload = async() => {
                 pizzasInCart.push(chosenPizza);
             }
             currentCartStatus = updateCheckoutVar();
-            console.log(currentCartStatus);
+            window.order = currentCartStatus;
+            console.log(window.order);
         })
     };
 };

@@ -83,6 +83,12 @@
       "name": "molluscs",
       "category": "R",
       "description": "Molluscs and products thereof"
+    },
+    {
+      "id": 15,
+      "name": "bugs",
+      "category": "OhOh",
+      "description": "bugs and other painful stuff"
     }
   ]
 }

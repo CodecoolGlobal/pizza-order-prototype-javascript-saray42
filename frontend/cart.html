@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./public/style.css" />
-    <script type="module" src="./public/cart.js" defer></script>
+    <script src="./public/cart.js" defer></script>
     
     <title>Pizza Erdäpfel</title>
   </head>
@@ -64,8 +64,18 @@
         </div>
         <p>Last step, check your data above and confirm your order.</p>
         <button id="confirm-button">Order</button>
-
       </div>
+      
+      <div id="content2-container" class="content">
+        <div style="display: none" id="delivery-container">
+          <h1>Thank you, we have received your order.</h1>
+          <img src="https://www.pngkey.com/png/full/2-21391_hand-drawn-cartoon-pizza-decoration-vector-pizza-picture.png" 
+            id="pizza"
+            alt="rotating-pizza"/>
+          <h3><a href="menu.html">You want more?</a></h3>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>

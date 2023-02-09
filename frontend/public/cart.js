@@ -11,46 +11,26 @@ let allergens = [];
 let order = null;
 let updatedOrder = {};
 
-// Test order object:
-// order = [
-//     {
-//         "id": 1, 
-//         "amount": 1
-//     },
-//     {
-//         "id": 6, 
-//         "amount": 2
-//     }
-// ];
-const fetchPizzaList = async () => {
-    const list = await fetch("http://localhost:3000/api/pizza");
-    const pizzaParsed = await list.json();
-    pizzas = pizzaParsed.pizza;
-
-    // pizzasOut.innerText = pizzas;
-    // console.log(pizzas);
-}
-
-const fetchAllergeneList = async () => {
-    const list = await fetch("http://localhost:3000/api/allergens");
-    const allergeneParsed = await list.json();
-    allergens = allergeneParsed.allergens;
-    // allergensOut.innerText = allergens;
-    // console.log(allergens);
-}
-
 const main = async () => {
-    // searchPizza.onclick = fetchPizzaList;
-    // searchAllergens.onclick = fetchAllergeneList;
     await fetchPizzaList();
     await fetchAllergeneList();
     getDataFromMenu();
     renderOrderList();
     addEventConfirmBtn();
+}
+main();
 
+async function fetchPizzaList() {
+    const list = await fetch("http://localhost:3000/api/pizza");
+    const pizzaParsed = await list.json();
+    pizzas = pizzaParsed.pizza;
 }
 
-main();
+async function fetchAllergeneList() {
+    const list = await fetch("http://localhost:3000/api/allergens");
+    const allergeneParsed = await list.json();
+    allergens = allergeneParsed.allergens;
+}
 
 function renderOrderList() {
     const orderListElement = document.querySelector("#order-list");
@@ -90,9 +70,11 @@ function getPizzaByID(searchID) {
     const foundPizza = pizzas.find(pizza => pizza.id == searchID);
     return foundPizza;
 }
+
 function intlNumberFormat(number) {
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'EUR' }).format(number);
 }
+
 function addEventConfirmBtn() {
     confirmBtn.addEventListener("click", () => {
         const currentDate = new Date();
@@ -115,33 +97,37 @@ function addEventConfirmBtn() {
         };
 
         updatedOrder = {
-            
-            
-                "id": null,
-                "pizzas": order,
-                "date": dateData,
-                "customer": costumerData,
-            
-        
+            "id": null,
+            "pizzas": order,
+            "date": dateData,
+            "customer": costumerData,
         };
-        console.log(updatedOrder)
+        renderDeliveryScreen();
         updateUserDataToServer(updatedOrder);
-
     })
 }
+
 async function updateUserDataToServer(object) {
-    console.log("POST")
     const response = await fetch("http://localhost:3000/api/order", {
 		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
+		headers: {"Content-Type": "application/json",},
 		body: JSON.stringify(object),
 	});
 }
 
 function getDataFromMenu() {
     const orderLocalStorage = window.localStorage.getItem('currentOrder');
-    console.log(JSON.parse(orderLocalStorage));
     order = JSON.parse(orderLocalStorage);
 }
+
+function renderDeliveryScreen() {
+    const cartContainer = document.querySelector("#cart-container");
+    const deliveryContainer = document.querySelector("#delivery-container");
+    cartContainer.style.display = "none";
+    deliveryContainer.style.display = "";
+}
+// const deliveryContainer = document.querySelector("#delivery-container");
+// const cartContainer = document.querySelector("#cart-container");
+// cartContainer.style.display = "none";
+// deliveryContainer.style.display = "";
+

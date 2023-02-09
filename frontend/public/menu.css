@@ -117,7 +117,8 @@ h1 {
   margin-bottom: 10px;
 }
 
-button{
+#checkout-btn,
+.add-to-cart {
   box-shadow: 5px 5px 5px black;
 }
 
@@ -146,4 +147,13 @@ h3 {
 #delivery-fee,
 #total {
   text-align: end;
+}
+
+#cart-table {
+  width: 100%;
+}
+
+.amount-down,
+.amount-up {
+
 }

@@ -5,15 +5,25 @@ let allergenesList = null;
 
 
 window.onload = async() => {
-    await fetchAndRenderPizzaList();
+    let menu = await fetchAndRenderPizzaList();
     await fetchAPIAllergenesList();
     displayEmptyBasket();
     addEventClickToAllergenes();
 
-    const addToCartButton = document.querySelector(".add-to-cart");
-    addToCartButton.addEventListener("click", (e) => {
-        console.log(e.target.parentNode);
-    })
+    const addToCartButton = document.querySelectorAll(".add-to-cart");
+    for (button of addToCartButton) {
+        button.addEventListener("click", (e) => {
+            const orderItemTable = document.getElementById("cart-table");
+            const chosenPizzaID = (e.target.parentNode.id.split(""))[1];
+            const chosenPizza = menu.pizza[chosenPizzaID - 1];
+            const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
+            orderItemTable.appendChild(orderItemTableRow);
+
+
+            console.log(orderItemTable);
+            console.log(menu);
+        })
+    };
 };
 
 
@@ -22,6 +32,7 @@ async function fetchAndRenderPizzaList() {
     const fetchedData = await fetch("http://127.0.0.1:3000/api/pizza");
     const parsedData = await fetchedData.json();
     parsedData.pizza.map(pizza => displayPizzaElements(pizza));
+    return parsedData;
 };
 
 async function displayPizzaElements(pizza) {
@@ -112,4 +123,54 @@ function fetchAndDisplayAllergens(allergensID, allergenList) {
 
 function displayEmptyBasket() {
     console.log("work in progress")
-}
+};
+
+function renderChosenPizzaEl(pizza) {
+     `<tr class="pizza-in-cart" id="c${pizza.id}">
+                <td>${pizza.name}</td>
+                <td>${pizza.price}</td>
+                <td>
+                    <button type="button" class="amount-down" >-</button>
+                    ${1}
+                    <button type="button" class="amount-up">+</button>
+                </td>
+            </tr>`
+
+    const tableRow = document.createElement("tr");
+    tableRow.setAttribute("class", "pizza-in-cart");
+    tableRow.setAttribute("id", `c${pizza.id}`);
+
+    const nameCell = document.createElement("td");
+    nameCell.innerHTML = `${pizza.name}`;
+
+    const priceCell = document.createElement("td");
+    nameCell.innerHTML = `${pizza.price}`;
+
+    const amountCell = document.createElement("td");
+
+    const amountDownBtn = document.createElement("button");
+    amountDownBtn.setAttribute("type", "button");
+    amountDownBtn.setAttribute("class", "amount-down");
+    amountDownBtn.innerHTML = "-"
+
+    const amountNumber = document.createElement("p");
+    amountNumber.innerHTML = 1;
+
+    const amountUpBtn = document.createElement("button");
+    amountUpBtn.setAttribute("type", "button");
+    amountUpBtn.setAttribute("class", "amount-up");
+    amountUpBtn.innerHTML = "+";
+
+    amountCell.append(amountDownBtn, amountNumber, amountUpBtn);
+
+    tableRow.append(nameCell, priceCell, amountCell);
+
+    amountDownBtn.addEventListener("click", (e) => {
+        e.target.nextElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.nextElementSibling.innerHTML) + 1 : parseInt(e.target.nextElementSibling.innerHTML) - 1;
+    });
+    amountUpBtn.addEventListener("click", (e) => {
+        e.target.previousElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.previousElementSibling.innerHTML) + 1 : parseInt(e.target.previousElementSibling.innerHTML) - 1;
+    });
+
+    return tableRow;
+};

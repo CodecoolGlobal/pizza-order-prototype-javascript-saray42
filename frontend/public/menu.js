@@ -3,6 +3,7 @@ const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
 export let Test = ["Thomas & Martin"];
+// window.order = "orderMartin";
 
 window.onload = async() => {
     await fetchAndRenderPizzaList();

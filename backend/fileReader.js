@@ -10,7 +10,7 @@ const fileWriterAsync = async (filePath, content) => {
 
 const fileReaderAsync = async (filePath) => {
   try {
-    return await readFile(filePath);
+    return await readFile(filePath, {encoding: "utf8"});
   } catch (error) {
     console.error(`File reading error: ${error.message}`);
   }

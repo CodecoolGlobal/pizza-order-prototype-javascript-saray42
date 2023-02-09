@@ -271,3 +271,7 @@ button:active {
 #cart-horizontal-line {
   color: #ea272d;
 }
+
+.cart-input > label{
+  /* background-color: red; */
+}

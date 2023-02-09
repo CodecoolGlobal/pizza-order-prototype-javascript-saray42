@@ -1,11 +1,17 @@
-const searchPizza = document.getElementById("search-pizzas");
-const searchAllergens = document.getElementById("search-allergens");
-const pizzasOut = document.getElementById("pizzas");
-const allergensOut = document.getElementById("allergens")
+const inputFullname = document.querySelector("#fullname-inputfield");
+const inputEmail = document.querySelector("#email-inputfield");
+const inputStreet = document.querySelector("#street-inputfield");
+const inputCity = document.querySelector("#city-inputfield");
+const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
+
+
+
+const confirmBtn = document.querySelector("#confirm-button");
 
 let pizzas = [];
 let allergens = [];
 let order = [];
+let updatedOrder = {}
 order = {
     "id": 1,
     "pizzas": [
@@ -58,6 +64,8 @@ const main = async () => {
     await fetchPizzaList();
     await fetchAllergeneList();
     renderOrderList();
+    addEventConfirmBtn();
+
 }
 
 main();
@@ -84,6 +92,52 @@ function getPizzaByID(searchID) {
 }
 function intlNumberFormat(number) {
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'EUR' }).format(number);
+}
+function addEventConfirmBtn() {
+    confirmBtn.addEventListener("click", () => {
+        const currentDate = new Date();
+        const dateData = {
+            "year": currentDate.getFullYear(),
+            "month": currentDate.getMonth(),
+            "day": currentDate.getDay(),
+            "hour": currentDate.getHours(),
+            "minute": currentDate.getMinutes(),
+        };
+
+        const costumerData = {
+            "name": inputFullname.value,
+            "email": inputEmail.value,
+            "adress": {
+                "street": inputStreet.value,
+                "city": inputCity.value,
+            },
+            "newsletter": checkboxNewsletter.checked,
+        };
+
+        updatedOrder = {
+            
+            
+                "id": null,
+                "pizzas": ["Test"],
+                "date": dateData,
+                "customer": costumerData,
+            
+        
+        };
+        console.log(updatedOrder)
+        updateUserDataToServer(updatedOrder);
+
+    })
+}
+async function updateUserDataToServer(object) {
+    console.log("POST")
+    const response = await fetch("http://localhost:3000/api/order", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(object),
+	});
 }
 
 import { Test } from "./menu.js";

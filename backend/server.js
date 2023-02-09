@@ -34,7 +34,8 @@ app
     const incomingOrder = req.body;
     let orderList = await fileReaderAsync(orders);
     orderList = JSON.parse(orderList);
-    orderList.push(incomingOrder);
+    console.log(orderList)
+    orderList.orders.push(incomingOrder);
     await fileWriterAsync(orders, JSON.stringify(orderList));
     res.send(orderList);
   });

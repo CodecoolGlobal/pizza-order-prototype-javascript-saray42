@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./menu.css" />
-    <title>Pizza Menu</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" defer></script>
+    <title>Pizza Erdäpfel</title>
   </head>
+
   <body>
     <div class="navigation-container">
       <div class="navigation-content">
@@ -17,7 +19,7 @@
         <div class="menu"></div>
         <ul>
           <li><a href="http://127.0.0.1:3000/">HOME</a></li>
-          <li><a href="http://127.0.0.1:3000/allergen">ALLERGENE</a></li>
+          <li><a href="http://127.0.0.1:3000/menu">MENU</a></li>
         </ul>
         <!--cart-->
         <div class="cart">
@@ -26,15 +28,19 @@
         </div>
       </div>
     </div>
-    <div id="menu-root">
-      <div id="menu">
-        <h1>Our TOP 7!</h1>
-      </div>
-      <div id="cart-root">
-        <h1>Cart</h1>
-        <div id="cart"></div>
+    <!--naviagtion-end-->
+    <div id="content-container" class="content">
+
+      <div id="allergen-container">
+        <h1>Food allergens</h1>
+        <div id="allergen-list">
+        </div>
+        <footer>The listed food allergens are based on the
+          <a href="https://www.wko.at/branchen/tourismus-freizeitwirtschaft/gastronomie/Service_Dokument_Liste_Gesundheit_Kennzeichnungsplichten.pdf">
+          EU-Food Information to Consumers Regulation.
+          </a>
+        </footer>
       </div>
     </div>
   </body>
-  <script src="./menu.js"></script>
 </html>

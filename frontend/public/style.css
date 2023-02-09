@@ -257,3 +257,17 @@ button:active {
   transform: scale(1.2);
   transition: all ease 0.5s;
 }
+
+#allergen-container, #cart-container {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #ea272d;
+    border-radius: 10px;
+}
+
+#cart-horizontal-line {
+  color: #ea272d;
+}

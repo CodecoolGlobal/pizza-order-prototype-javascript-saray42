@@ -5,45 +5,27 @@ const inputCity = document.querySelector("#city-inputfield");
 const checkboxNewsletter = document.querySelector("#checkbox-newsletter");
 const confirmBtn = document.querySelector("#confirm-button");
 
-import { currentCartStatus3 } from "./menu.js";
-console.log(currentCartStatus3)
+import { currentCartStatus } from "./menu.js";
+console.log(currentCartStatus)
 
 let pizzas = [];
 let allergens = [];
 let order = [];
-order = currentCartStatus;
+// order = currentCartStatus // doesn't work
 console.log(order)
 let updatedOrder = {}
-/* 
-order = {
-    "id": 1,
-    "pizzas": [
-        {
-            "id": 1, 
-            "amount": 2
-        },
-        {
-            "id": 2, 
-            "amount": 5
-        }
-    ],
-    "date": {
-        "year": 2022,
-        "month": 6,
-        "day": 7,
-        "hour": 18,
-        "minute": 47
+
+// Test order object:
+order = [
+    {
+        "id": 1, 
+        "amount": 1
     },
-    "customer": {
-        "name": "John Doe",
-        "email": "jd@example.com",
-        "address": {
-            "city": "Palermo",
-            "street": "Via Appia 6"
-        }
+    {
+        "id": 6, 
+        "amount": 2
     }
-};
- */
+];
 const fetchPizzaList = async () => {
     const list = await fetch("http://localhost:3000/api/pizza");
     const pizzaParsed = await list.json();
@@ -76,7 +58,7 @@ main();
 function renderOrderList() {
     const orderListElement = document.querySelector("#order-list");
     let sum = null;
-    order.pizzas.map((pizza) => {
+    order.map((pizza) => {
         const filteredPizza = getPizzaByID(pizza.id)
         const pizzaPrice = intlNumberFormat(filteredPizza.price);
         orderListElement.insertAdjacentHTML("beforeend", `
@@ -121,7 +103,7 @@ function addEventConfirmBtn() {
             
             
                 "id": null,
-                "pizzas": ["Test"],
+                "pizzas": order,
                 "date": dateData,
                 "customer": costumerData,
             

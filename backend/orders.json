@@ -1,1 +1,28 @@
-{"orders":[{"id":1,"pizzas":[{"id":1,"amount":2}],"date":{"year":2022,"month":6,"day":7,"hour":18,"minute":47},"customer":{"name":"John Doe","email":"jd@example.com","address":{"city":"Palermo","street":"Via Appia 6"}}},{"id":2,"pizzas":["Test"],"date":{"year":2023,"month":1,"day":4,"hour":16,"minute":5},"customer":{"name":"Donald Duck","email":"donald.duck@gmx.com","adress":{"street":"Blumenstraße 5","city":"Entenhausen"},"newsletter":true}},{"id":1,"pizzas":["Test"],"date":{"year":2023,"month":1,"day":4,"hour":16,"minute":25},"customer":{"name":"Donald Duck","email":"donald.duck@gmx.com","adress":{"street":"Blumenstraße 5","city":"Entenhausen"},"newsletter":true}},{"id":1,"pizzas":["Test"],"date":{"year":2023,"month":1,"day":4,"hour":16,"minute":47},"customer":{"name":"Donald Duck","email":"donald.duck@gmx.com","adress":{"street":"Blumenstraße 5","city":"Entenhausen"},"newsletter":true}}]}
+{
+    "orders": [
+        {
+            "id": 1,
+            "pizzas": [
+                {
+                    "id": 1,
+                    "amount": 2
+                }
+            ],
+            "date": {
+                "year": 2022,
+                "month": 6,
+                "day": 7,
+                "hour": 18,
+                "minute": 47
+            },
+            "customer": {
+                "name": "John Doe",
+                "email": "jd@example.com",
+                "address": {
+                    "city": "Palermo",
+                    "street": "Via Appia 6"
+                }
+            }
+        }
+    ]
+}

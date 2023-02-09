@@ -2,7 +2,7 @@ const menuList = document.querySelector("#menu");
 const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
-export let Test = ["Thomas & Martin"];
+export let currentCartStatus = [];
 // window.order = "orderMartin";
 
 window.onload = async() => {
@@ -26,10 +26,8 @@ window.onload = async() => {
                 orderItemTable.appendChild(orderItemTableRow);
                 pizzasInCart.push(chosenPizza);
             }
-
-
-            console.log(pizzasInCart);
-            console.log(menu);
+            currentCartStatus = updateCheckoutVar();
+            console.log(currentCartStatus);
         })
     };
 };
@@ -187,6 +185,12 @@ function renderChosenPizzaEl(pizza) {
     return tableRow;
 };
 
-function checkIfPizzaAlreadyInCart(cart, pizza) {
-    cart
+function updateCheckoutVar() {
+    const cartPositions = [...document.querySelectorAll(".pizza-in-cart")];
+    return cartPositions.map(pos => {return makeObject(pos)});
+};
+
+function makeObject(pos) {
+    const pizzaID = parseInt(pos.id.split("")[1]);
+    return {"id": pizzaID, "amount": parseInt(pos.querySelector(`#a${pizzaID}`).innerHTML)};
 }

@@ -37,8 +37,6 @@ const main = async () => {
   renderAllergenList();
 };
 
-main();
-
 function renderAllergenList() {
   const allergenListElement = document.querySelector("#allergen-list");
   allergens.map((allergen) => {
@@ -60,3 +58,5 @@ const dataListOptionHTML = `<option value="${ingredients}"></option>`;
 searchInput.addEventListener("keyup", async () => {
   ingredientsOption.insertAdjacentHTML("beforeend", dataListOptionHTML);
 });
+
+main();

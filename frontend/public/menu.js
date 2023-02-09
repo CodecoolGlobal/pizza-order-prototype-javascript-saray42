@@ -6,11 +6,31 @@ export let currentCartStatus = [];
 // window.order = "orderMartin";
 
 window.onload = async() => {
-    let menu = await fetchAndRenderPizzaList();
+    const menu = await fetchAndRenderPizzaList();
     await fetchAPIAllergenesList();
     displayEmptyBasket();
     addEventClickToAllergenes();
     let pizzasInCart = [];
+    let possibleMenu = menu.pizza;
+    let filteredAllergens = []
+
+    const filterCheckbox = document.querySelectorAll(".allergen-box")
+    for (let checkbox of filterCheckbox) {
+        checkbox.addEventListener("click", (e) => {
+            let allergenIdNumber = parseInt(e.target.id.split("").splice(1).join(""));
+            checkbox.checked ? filteredAllergens.push(allergenIdNumber) : filteredAllergens.splice(filteredAllergens.indexOf(allergenIdNumber), 1);
+            for (let allergen of filteredAllergens) {
+                possibleMenu = possibleMenu.filter(pizza => !pizza.allergens.includes(allergen));
+            }
+            [...document.querySelectorAll(".pizza")].map(pizza => pizza.remove());
+            possibleMenu.map(pizza => displayPizzaElements(pizza));
+
+            
+            // console.log(filteredAllergens);
+            possibleMenu = menu.pizza;
+            console.log(possibleMenu)
+        })
+    }
 
     const addToCartButton = document.querySelectorAll(".add-to-cart");
     for (let button of addToCartButton) {

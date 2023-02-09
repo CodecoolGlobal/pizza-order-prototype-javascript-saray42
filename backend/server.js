@@ -5,6 +5,7 @@ const { fileReaderAsync, fileWriterAsync } = require("./fileReader");
 const app = express();
 const port = 3000;
 const path = require("path");
+let orderID = 0;
 
 const pizzaList = JSON.parse(fs.readFileSync(__dirname + "/pizza-list.json"));
 const allergeneList = JSON.parse(
@@ -32,9 +33,11 @@ app
   })
   .post(async (req, res) => {
     const incomingOrder = req.body;
+    orderID = orderID + 1; // doesn't work!!!
+    incomingOrder.id = orderID;
+    console.log(incomingOrder)
     let orderList = await fileReaderAsync(orders);
     orderList = JSON.parse(orderList);
-    console.log(orderList)
     orderList.orders.push(incomingOrder);
     await fileWriterAsync(orders, JSON.stringify(orderList));
     res.send(orderList);

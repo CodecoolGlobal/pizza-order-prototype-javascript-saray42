@@ -83,6 +83,18 @@ async function displayPizzaElements(pizza) {
     toCartBtn.innerHTML = "Add to cart";
 
     toCartBtn.addEventListener("click", listenerAddToCart);
+    
+    if (pizza.id === 8) {
+        pizzaName.addEventListener("click", () => {
+            body.insertAdjacentHTML("afterbegin", `<div id="pizza-pic-div"><img src="./public/img/PizzaSpaghCode.png" id="pizza-pic"></div>`)
+            document.addEventListener("click", (e) => {
+                if (e.target !== pizzaName) {
+                    removeElement("#pizza-pic-div");
+                }
+            })
+        });
+
+    };
 
     pizzaDiv.append(pizzaName, pizzaIngredients, pizzaAll, pizzaPrice, toCartBtn);
     menuList.appendChild(pizzaDiv);
@@ -111,6 +123,8 @@ function addEventClickToAllergenes() {
         }
     })
 };
+
+document.querySelector
 
 async function createWindowAllergenes(allergenLetters) {
     removeElement("#window-allergenes");

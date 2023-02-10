@@ -154,6 +154,29 @@ h1 {
   height: 30px;
 }
 
+#pizza-pic-div {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  margin: 0;
+  padding: 0;
+  left: 35%;
+  right: 35%;
+  top: 25%;
+  bottom: 25%;
+  animation: pizzaAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes pizzaAnimation {
+  to {
+      transform: scale(1.5) rotate(1turn);
+  }
+}
+
+#pizza-pic {
+  width: 100%
+}
+
 #window-allergenes {
   position: absolute;
   top: 50%;

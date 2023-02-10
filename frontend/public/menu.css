@@ -40,9 +40,15 @@ h1 {
   height: calc(100vh - 60px);
 }
 
-/* #cart-root {
-  position: fixed;
-} */
+#pizza-ingredients {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#price {
+  font-weight: bold;
+  font-size: 18px;
+}
 
 h1 {
   margin-left: 5%;
@@ -78,6 +84,55 @@ h1 {
   width: 80%;
   border: 2px solid black;
   border-radius: 20px;
+}
+
+#cart-item-container {
+  min-height: 200px;
+}
+
+.pizza-in-cart {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.item-amount-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.item-name,
+.item-price,
+.item-amount {
+  margin: 0;
+}
+
+.amount-down,
+.amount-up {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+#disclaimer {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+  size: 10px;
+}
+
+.calc,
+.total {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.total {
+  font-weight: bold;
 }
 
 .navigation-container {

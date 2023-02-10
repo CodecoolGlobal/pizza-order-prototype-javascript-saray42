@@ -10,7 +10,6 @@ window.onload = async() => {
     const menu = await fetchAndRenderPizzaList();
     menuForListener = menu.pizza;
     await fetchAPIAllergenesList();
-    displayEmptyBasket();
     addEventClickToAllergenes();
     let possibleMenu = menu.pizza;
     let filteredAllergens = []
@@ -25,14 +24,13 @@ window.onload = async() => {
             }
             [...document.querySelectorAll(".pizza")].map(pizza => pizza.remove());
             possibleMenu.map(pizza => displayPizzaElements(pizza));
-
             possibleMenu = menu.pizza;
         })
     }
 };
 
 function listenerAddToCart(e) {
-    const orderItemTable = document.getElementById("cart-table");
+    const orderItemsContainer = document.getElementById("cart-item-container");
     const chosenPizzaID = (e.target.parentNode.id.split(""))[1];
     const chosenPizza = menuForListener[chosenPizzaID - 1];
     if (pizzasInCart.includes(chosenPizza)) {
@@ -40,9 +38,11 @@ function listenerAddToCart(e) {
         cartAmountOfChosenPizza.innerHTML = parseInt(cartAmountOfChosenPizza.innerHTML) + 1;
      } else {
         const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
-        orderItemTable.appendChild(orderItemTableRow);
+        orderItemsContainer.appendChild(orderItemTableRow);
         pizzasInCart.push(chosenPizza);
     }
+    document.getElementById("checkout-btn").disabled = false;
+    calculationForCheckout();
     currentCartStatus = updateCheckoutVar();
     window.localStorage.setItem("currentOrder", JSON.stringify(currentCartStatus));
 };
@@ -54,6 +54,10 @@ async function fetchAndRenderPizzaList() {
     return parsedData;
 };
 
+document.getElementById("checkout-btn").addEventListener("click", () => {
+    window.location.href = "./cart.html";
+});
+
 async function displayPizzaElements(pizza) {
     const fetchedAllergenList = await fetch("http://127.0.0.1:3000/api/allergens");
     const parsedAllergenList = await fetchedAllergenList.json();
@@ -61,18 +65,18 @@ async function displayPizzaElements(pizza) {
     const pizzaDiv = document.createElement("div");
     pizzaDiv.setAttribute("class", "pizza");
     pizzaDiv.setAttribute("id", `p${pizza.id}`);
-    const pizzaName = document.createElement("p");
+    const pizzaName = document.createElement("h3");
     pizzaName.setAttribute("id", "pizza-name");
     pizzaName.innerHTML = pizza.name;
     const pizzaIngredients = document.createElement("p");
     pizzaIngredients.setAttribute("id", "pizza-ingredients");
-    pizzaIngredients.innerHTML = pizza.ingredients.join(" | ");
+    pizzaIngredients.innerHTML = "Ingredients: " + pizza.ingredients.join(" | ");
     const pizzaAll = document.createElement("p");
-    pizzaAll.setAttribute("id", "allergens");
+    pizzaAll.setAttribute("id", "allergenes");
     pizzaAll.innerHTML = fetchAndDisplayAllergens(pizza.allergens, parsedAllergenList.allergens);
     const pizzaPrice = document.createElement("p");
     pizzaPrice.setAttribute("id", "price");
-    pizzaPrice.innerHTML = pizza.price;
+    pizzaPrice.innerHTML = `€ ${pizza.price}`;
     const toCartBtn = document.createElement("button");
     toCartBtn.setAttribute("id", "add-to-cart");
     toCartBtn.setAttribute("type", "button");
@@ -158,55 +162,49 @@ function fetchAndDisplayAllergens(allergensID, allergenList) {
     return allergenShort;
 };
 
-function displayEmptyBasket() {
-    console.log("work in progress")
-};
 
 function renderChosenPizzaEl(pizza) {
-
-    const tableRow = document.createElement("tr");
-    tableRow.setAttribute("class", "pizza-in-cart");
-    tableRow.setAttribute("id", `c${pizza.id}`);
-
-    const nameCell = document.createElement("td");
-    nameCell.innerHTML = `${pizza.name}`;
-
-    const priceCell = document.createElement("td");
-    nameCell.innerHTML = `${pizza.price}`;
-
-    const amountCell = document.createElement("td");
-
-    const amountDownBtn = document.createElement("button");
-    amountDownBtn.setAttribute("type", "button");
-    amountDownBtn.setAttribute("class", "amount-down");
-    amountDownBtn.innerHTML = "-"
-
-    const amountNumber = document.createElement("p");
-    amountNumber.setAttribute("id", `a${pizza.id}`)
-    amountNumber.innerHTML = 1;
-
-    const amountUpBtn = document.createElement("button");
-    amountUpBtn.setAttribute("type", "button");
-    amountUpBtn.setAttribute("class", "amount-up");
-    amountUpBtn.innerHTML = "+";
-
-    amountCell.append(amountDownBtn, amountNumber, amountUpBtn);
-
-    tableRow.append(nameCell, priceCell, amountCell);
+    const orderItem = document.createElement("div")
+    orderItem.setAttribute("class", "pizza-in-cart");
+    orderItem.setAttribute("id", `c${pizza.id}`);
+    const itemName = document.createElement("p");
+    itemName.setAttribute("class", "item-name");
+    itemName.innerHTML = `${pizza.name}`;
+    const itemPrice = document.createElement("p");
+    itemPrice.setAttribute("class", "item-price");
+    itemPrice.innerHTML = `€ ${pizza.price}`;
+    const itemAmountDiv = document.createElement("div");
+    itemAmountDiv.setAttribute("class", "item-amount-container");
+        const amountDownBtn = document.createElement("button");
+        amountDownBtn.setAttribute("type", "button");
+        amountDownBtn.setAttribute("class", "amount-down");
+        amountDownBtn.innerHTML = "-"
+        const amountNumber = document.createElement("p");
+        amountNumber.setAttribute("class", "item-amount");
+        amountNumber.setAttribute("id", `a${pizza.id}`)
+        amountNumber.innerHTML = 1;
+        const amountUpBtn = document.createElement("button");
+        amountUpBtn.setAttribute("type", "button");
+        amountUpBtn.setAttribute("class", "amount-up");
+        amountUpBtn.innerHTML = "+";
+        
+    itemAmountDiv.append(amountDownBtn, amountNumber, amountUpBtn);
+    orderItem.append(itemName, itemPrice, itemAmountDiv);
 
     amountDownBtn.addEventListener("click", (e) => {
         e.target.nextElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.nextElementSibling.innerHTML) + 1 : parseInt(e.target.nextElementSibling.innerHTML) - 1;
-        console.log(e.target.nextElementSibling.innerHTML)
         if (e.target.nextElementSibling.innerHTML === "0") {
-            console.log(0)
             e.target.parentNode.parentNode.remove();
+            [...document.querySelectorAll(".pizza-in-cart")].length > 0 ? document.getElementById("checkout-btn").disabled = false : document.getElementById("checkout-btn").disabled = true;
         }
+        calculationForCheckout();
     });
     amountUpBtn.addEventListener("click", (e) => {
         e.target.previousElementSibling.innerHTML = e.target.innerHTML === "+" ? parseInt(e.target.previousElementSibling.innerHTML) + 1 : parseInt(e.target.previousElementSibling.innerHTML) - 1;
+        calculationForCheckout();
     });
 
-    return tableRow;
+    return orderItem;
 };
 
 function updateCheckoutVar() {
@@ -218,3 +216,19 @@ function makeObject(pos) {
     const pizzaID = parseInt(pos.id.split("")[1]);
     return {"id": pizzaID, "amount": parseInt(pos.querySelector(`#a${pizzaID}`).innerHTML)};
 }
+
+function calculationForCheckout() {
+    let subtotal = 0;
+    const pizzaDivs = document.querySelectorAll(".pizza-in-cart");
+    for (let pizza of pizzaDivs) {
+        let price = parseFloat(pizza.querySelector(".item-price").innerHTML.slice(2));
+        let amount = parseInt(pizza.querySelector(".item-amount-container").querySelector(".item-amount").innerHTML);
+        subtotal += (Math.round(((price * amount) * 100)) / 100)
+    };
+    document.getElementById("subtotal").innerHTML = subtotal === 0 ? "€ 0.00" : `€ ${subtotal}`;
+
+    let deliveryFee = subtotal >= 15 ? 0.00 : 2.00;
+    document.getElementById("delivery-fee").innerHTML = `€ ${deliveryFee}.00`;
+
+    document.getElementById("total").innerHTML = subtotal === 0 ? "€ 0.00" : `€ ${subtotal + deliveryFee}`;
+};

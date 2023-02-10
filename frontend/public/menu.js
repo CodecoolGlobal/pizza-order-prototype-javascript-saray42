@@ -3,13 +3,15 @@ const cart = document.querySelector("#cart");
 const body = document.querySelector("body");
 let allergenesList = null;
 let currentCartStatus = [];
+let menuForListener = [];
+let pizzasInCart = [];
 
 window.onload = async() => {
     const menu = await fetchAndRenderPizzaList();
+    menuForListener = menu.pizza;
     await fetchAPIAllergenesList();
     displayEmptyBasket();
     addEventClickToAllergenes();
-    let pizzasInCart = [];
     let possibleMenu = menu.pizza;
     let filteredAllergens = []
 
@@ -23,28 +25,26 @@ window.onload = async() => {
             }
             [...document.querySelectorAll(".pizza")].map(pizza => pizza.remove());
             possibleMenu.map(pizza => displayPizzaElements(pizza));
+
             possibleMenu = menu.pizza;
         })
     }
+};
 
-    const addToCartButton = document.querySelectorAll(".add-to-cart");
-    for (let button of addToCartButton) {
-        button.addEventListener("click", (e) => {
-            const orderItemTable = document.getElementById("cart-table");
-            const chosenPizzaID = (e.target.parentNode.id.split(""))[1];
-            const chosenPizza = menu.pizza[chosenPizzaID - 1];
-            if (pizzasInCart.includes(chosenPizza)) {
-                const cartAmountOfChosenPizza = document.getElementById(`a${chosenPizzaID}`);
-                cartAmountOfChosenPizza.innerHTML = parseInt(cartAmountOfChosenPizza.innerHTML) + 1;
-             } else {
-                const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
-                orderItemTable.appendChild(orderItemTableRow);
-                pizzasInCart.push(chosenPizza);
-            }
-            currentCartStatus = updateCheckoutVar();
-            window.localStorage.setItem("currentOrder", JSON.stringify(currentCartStatus));
-        })
-    };
+function listenerAddToCart(e) {
+    const orderItemTable = document.getElementById("cart-table");
+    const chosenPizzaID = (e.target.parentNode.id.split(""))[1];
+    const chosenPizza = menuForListener[chosenPizzaID - 1];
+    if (pizzasInCart.includes(chosenPizza)) {
+        const cartAmountOfChosenPizza = document.getElementById(`a${chosenPizzaID}`);
+        cartAmountOfChosenPizza.innerHTML = parseInt(cartAmountOfChosenPizza.innerHTML) + 1;
+     } else {
+        const orderItemTableRow = renderChosenPizzaEl(chosenPizza);
+        orderItemTable.appendChild(orderItemTableRow);
+        pizzasInCart.push(chosenPizza);
+    }
+    currentCartStatus = updateCheckoutVar();
+    window.localStorage.setItem("currentOrder", JSON.stringify(currentCartStatus));
 };
 
 async function fetchAndRenderPizzaList() {
@@ -57,14 +57,32 @@ async function fetchAndRenderPizzaList() {
 async function displayPizzaElements(pizza) {
     const fetchedAllergenList = await fetch("http://127.0.0.1:3000/api/allergens");
     const parsedAllergenList = await fetchedAllergenList.json();
-    menuList.insertAdjacentHTML("beforeend", `
-    <div class="pizza" id="p${pizza.id}">
-        <p class="pizza-name">${pizza.name}<p>
-        <p class="pizza-ingredients">${pizza.ingredients.join(" | ")}</p>
-        <p id="allergenes">${fetchAndDisplayAllergens(pizza.allergens, parsedAllergenList.allergens)}</p>
-        <p class="price">${pizza.price}</p>
-        <button class="add-to-cart" type="button">Add to cart</button>
-    </div>`)
+
+    const pizzaDiv = document.createElement("div");
+    pizzaDiv.setAttribute("class", "pizza");
+    pizzaDiv.setAttribute("id", `p${pizza.id}`);
+    const pizzaName = document.createElement("p");
+    pizzaName.setAttribute("id", "pizza-name");
+    pizzaName.innerHTML = pizza.name;
+    const pizzaIngredients = document.createElement("p");
+    pizzaIngredients.setAttribute("id", "pizza-ingredients");
+    pizzaIngredients.innerHTML = pizza.ingredients.join(" | ");
+    const pizzaAll = document.createElement("p");
+    pizzaAll.setAttribute("id", "allergens");
+    pizzaAll.innerHTML = fetchAndDisplayAllergens(pizza.allergens, parsedAllergenList.allergens);
+    const pizzaPrice = document.createElement("p");
+    pizzaPrice.setAttribute("id", "price");
+    pizzaPrice.innerHTML = pizza.price;
+    const toCartBtn = document.createElement("button");
+    toCartBtn.setAttribute("id", "add-to-cart");
+    toCartBtn.setAttribute("type", "button");
+    toCartBtn.innerHTML = "Add to cart";
+
+    toCartBtn.addEventListener("click", listenerAddToCart);
+
+    pizzaDiv.append(pizzaName, pizzaIngredients, pizzaAll, pizzaPrice, toCartBtn);
+    menuList.appendChild(pizzaDiv);
+
 };
 
 async function fetchAPIAllergenesList() {
@@ -145,15 +163,6 @@ function displayEmptyBasket() {
 };
 
 function renderChosenPizzaEl(pizza) {
-     `<tr class="pizza-in-cart" id="c${pizza.id}">
-                <td>${pizza.name}</td>
-                <td>${pizza.price}</td>
-                <td>
-                    <button type="button" class="amount-down" >-</button>
-                    ${1}
-                    <button type="button" class="amount-up">+</button>
-                </td>
-            </tr>`
 
     const tableRow = document.createElement("tr");
     tableRow.setAttribute("class", "pizza-in-cart");
